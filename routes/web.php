@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\GoogleAuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +34,6 @@ require __DIR__.'/auth.php';
 
 /***************************************************************************************************/
 Route::get('/home', [HomeController::class, 'index'])->middleware('auth')->name('home');
+/***************************************************************************************************/
+Route::get('auth/google', [GoogleAuthController::class, 'redirect'])->name('google-auth');
+Route::get('auth/google/call-back', [GoogleAuthController::class, 'callbackGoogle']);
