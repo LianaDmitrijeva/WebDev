@@ -18,7 +18,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
             $table->string('usertype')->default('user');
-            $table->string('google_id')->unique()->nullable(); //Continue with Google button
+            $table->string('google_id')->nullable(); //Continue with Google button
             $table->rememberToken();
             $table->timestamps();
         });
