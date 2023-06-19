@@ -35,5 +35,7 @@ require __DIR__.'/auth.php';
 /***************************************************************************************************/
 Route::get('/home', [HomeController::class, 'index'])->middleware('auth')->name('home');
 /***************************************************************************************************/
+
+//Continue with Google button
 Route::get('auth/google', [GoogleAuthController::class, 'redirect'])->name('google-auth');
 Route::get('auth/google/call-back', [GoogleAuthController::class, 'callbackGoogle']);

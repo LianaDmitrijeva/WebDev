@@ -53,9 +53,10 @@
     .hov {background: #1f2937}
 </style>
 <p style="padding-left:28px; margin-top:7px; margin-bottom:10px; color:gray;">⸻⸻⸻⸻⸻ OR ⸻⸻⸻⸻⸻</p>
+    <!-- Continue with Google button -->
     <div class="hov" style="border:1px solid #1f2937; border-radius: 5px; color:white;">
-    <a href="{{route('google-auth')}}" style="padding-left:130px;">
-       Continue with Google
-    </a>
+        <a href="{{route('google-auth')}}" style="padding-left:130px;">
+        Continue with Google
+        </a>
     </div>
 </x-guest-layout>
