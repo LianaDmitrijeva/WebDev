@@ -67,3 +67,9 @@ Route::get('/searchuser', [AdminController::class, 'searchUser'])->name('searchu
 Route::delete('/userlist/{user}', [AdminController::class, 'destroyUser'])->name('destroyuser');
 
 Route::get('/searchwelcome', [WelcomeController::class, 'searchwelcome'])->name('searchwelcome');
+
+/************************************************* Wishlist *************************************************/
+Route::get('products', [ProductController::class, 'productList'])->name('products.list');
+Route::post('favorite-add/{id}', [WishlistController::class, 'favoriteAdd'])->name('favorite.add');
+Route::delete('favorite-remove/{id}', [WishlistController::class, 'favoriteRemove'])->name('favorite.remove');
+Route::get('wishlist', [WishlistController::class, 'wishlist'])->name('wishlist');

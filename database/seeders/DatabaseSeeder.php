@@ -77,17 +77,7 @@ class DatabaseSeeder extends Seeder
             'description' => "1st book in the series",
             'image'=> '1.jpg', 
             'user_id' => 1, 
-        ]);
-        //Create book 2
-        DB::table('posts')->insert([
-            'name' => "Harry Potter and the Chamber of Secrets	",
-            'author' => 'J.K.Rowling',
-            'price' => 9.99,
-            'condition' => 'good',
-            'description' => "2nd book in the series",
-            'image'=> '2.jpg', 
-            'user_id' => 1, 
-        ]);
+        ]);;
 
         //Create book 3
         DB::table('posts')->insert([
@@ -97,50 +87,6 @@ class DatabaseSeeder extends Seeder
             'condition' => 'good',
             'description' => "3rd book in the series",
             'image'=> '3.jpeg', 
-            'user_id' => 1, 
-        ]);
-
-        //Create book 4
-        DB::table('posts')->insert([
-            'name' => "Harry Potter and the Goblet of Fire",
-            'author' => 'J.K.Rowling',
-            'price' => 9.99,
-            'condition' => 'good',
-            'description' => "4th book in the series",
-            'image'=> '4.jpg', 
-            'user_id' => 1, 
-        ]);
-
-        //Create book 5
-        DB::table('posts')->insert([
-            'name' => "Harry Potter and the Order of the Phoenix",
-            'author' => 'J.K.Rowling',
-            'price' => 9.99,
-            'condition' => 'good',
-            'description' => "5th book in the series",
-            'image'=> '5.jpg', 
-            'user_id' => 1, 
-        ]);
-
-        //Create book 6
-        DB::table('posts')->insert([
-            'name' => "Harry Potter and the Half-Blood Prince",
-            'author' => 'J.K.Rowling',
-            'price' => 9.99,
-            'condition' => 'good',
-            'description' => "6th book in the series",
-            'image'=> '6.jpeg', 
-            'user_id' => 1, 
-        ]);
-
-        //Create book 7
-        DB::table('posts')->insert([
-            'name' => "Harry Potter and the Deathly Hallows",
-            'author' => 'J.K.Rowling',
-            'price' => 9.99,
-            'condition' => 'good',
-            'description' => "7th book in the series",
-            'image'=> '7.jpeg', 
             'user_id' => 1, 
         ]);
         
@@ -166,6 +112,17 @@ class DatabaseSeeder extends Seeder
             'user_id' => 5, 
         ]);
 
+        //Create book 4
+        DB::table('posts')->insert([
+            'name' => "Harry Potter and the Goblet of Fire",
+            'author' => 'J.K.Rowling',
+            'price' => 9.99,
+            'condition' => 'good',
+            'description' => "4th book in the series",
+            'image'=> '4.jpg', 
+            'user_id' => 1, 
+        ]);
+
         //Create book 10
         DB::table('posts')->insert([
             'name' => "The Running Man",
@@ -177,6 +134,17 @@ class DatabaseSeeder extends Seeder
             'user_id' => 5, 
         ]);
 
+            //Create book 5
+            DB::table('posts')->insert([
+                'name' => "Harry Potter and the Order of the Phoenix",
+                'author' => 'J.K.Rowling',
+                'price' => 9.99,
+                'condition' => 'good',
+                'description' => "5th book in the series",
+                'image'=> '5.jpg', 
+                'user_id' => 1, 
+            ]);
+
         //Create book 11
         DB::table('posts')->insert([
             'name' => "The Green Mile",
@@ -186,6 +154,17 @@ class DatabaseSeeder extends Seeder
             'description' => "The Green Mile is a 1996 serial novel by American writer Stephen King. It tells the story of death row supervisor Paul Edgecombe's encounter with John Coffey, an unusual inmate who displays inexplicable healing and empathetic abilities. The serial novel was originally released in six volumes before being republished as a single-volume work. The book is an example of magical realism. The subsequent film adaptation was a critical and commercial success.",
             'image'=> '11.jpeg', 
             'user_id' => 5, 
+        ]);
+
+        //Create book 2
+        DB::table('posts')->insert([
+            'name' => "Harry Potter and the Chamber of Secrets	",
+            'author' => 'J.K.Rowling',
+            'price' => 9.99,
+            'condition' => 'good',
+            'description' => "2nd book in the series",
+            'image'=> '2.jpg', 
+            'user_id' => 1, 
         ]);
 
         //Create book 12
@@ -209,6 +188,28 @@ class DatabaseSeeder extends Seeder
             'image'=> 'troll.png', 
             'user_id' => 3, 
         ]);
+
+        //Create book 6
+        DB::table('posts')->insert([
+            'name' => "Harry Potter and the Half-Blood Prince",
+             'author' => 'J.K.Rowling',
+             'price' => 9.99,
+             'condition' => 'good',
+             'description' => "6th book in the series",
+              'image'=> '6.jpeg', 
+             'user_id' => 1, 
+        ]);
+                
+         //Create book 7
+          DB::table('posts')->insert([
+              'name' => "Harry Potter and the Deathly Hallows",
+              'author' => 'J.K.Rowling',
+              'price' => 9.99,
+              'condition' => 'good',
+              'description' => "7th book in the series",
+             'image'=> '7.jpeg', 
+             'user_id' => 1, 
+          ]);
 
         //Create book 14 (needs a fix)
         DB::table('posts')->insert([

@@ -28,7 +28,7 @@
                 </div>
     @else
             <table class="table table-hover" style="width:80%; vertical-align: middle;">
-            <thead>
+            <thead style="background-color: #D5D5D5; boarders:white; color: white; text-shadow: 1px 1px 2px black;">
             <tr>
                 <th>ID</th>
                 <th>Name</th>

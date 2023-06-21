@@ -37,7 +37,7 @@
                 </div>
             @else
             <table class="table table-sm" style="width:80%; margin-top:-70px; vertical-align: middle;">
-            <thead>
+            <thead style="background-color: #D5D5D5; boarders:white; color: white; text-shadow: 1px 1px 2px black;">
             <tr>
                 <th>Image</th>
                 <th>Name</th>

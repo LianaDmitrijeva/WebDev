@@ -18,12 +18,12 @@
         </div>
     </div>
     @if ($message = Session::get('success'))
-        <div style="margin-left: 150px; width:80%; margin-top:-70px;" class="alert alert-success">
+        <div style="margin-left: 150px; margin-bottom: 50px; width:80%; margin-top:-70px;" class="alert alert-success">
             <p>{{ $message }}</p>
         </div>
         <br>
     @endif
-    <div class="creation">
+    <div>
             @if($posts->isEmpty())
                 <div class="records">
                     <strong>Currently you don't have any posts.</strong>
@@ -31,6 +31,7 @@
                 </div>
             @else
             <table class="table table table-sm" style="width:80%; vertical-align: middle">
+            <thead style="background-color: #D5D5D5; boarders:white; color: white; text-shadow: 1px 1px 2px black;">
             <tr>
                 <th>Image</th>
                 <th>Name</th>
@@ -39,6 +40,7 @@
                 <th>Condition</th>
                 <th width="280px">Actions</th>
             </tr>
+            </thead>
             @foreach ($posts as $post)
             <tr>
                 <td><img src="/images/{{ $post->image }}" width="100px"></td>

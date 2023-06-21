@@ -38,17 +38,15 @@
                 </div>
             @else
             <table class="table table-hover" style="width:80%; margin-top:-70px; vertical-align: middle;">
-            <thead>
-            <tr>
-                <th>Image</th>
-                <th>Name</th>
-                <th>Author</th>
-                <th width="100px">Price</th>
-                <th width="100px">Condition</th>
-                <th width="160px">Add to Whishlist</th>
-            </tr>
-            </thead>
-            @foreach ($post as $post)
+            <thead style="background-color: #D5D5D5; boarders:white; color: white; text-shadow: 1px 1px 2px black;"><tr>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Author</th>
+                    <th width="100px">Price</th>
+                    <th width="100px">Condition</th>
+                    <th width="160px">Add to Whishlist</th>
+            </tr></thead>
+            @foreach ($posts as $post)
             <tr onclick="window.location='{{ route('show', $post->id) }}';" style="cursor: pointer;">
                 <td><img src="/images/{{ $post->image }}" width="100px"></td>
                 <td>{{ $post->name }}</td>
@@ -56,7 +54,7 @@
                 <td>{{ $post->price }}€</td>
                 <td>{{ $post->condition }}</td>
                 <td style="text-align: center;">
-                    <form method="POST">
+                    <form action="{{ route('favorite.add', $post->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <button type="submit" class="btn btn-outline-danger">♥</button>
                     </form>

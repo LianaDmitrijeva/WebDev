@@ -2,73 +2,38 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\User;
 use App\Models\Post;
-use Illuminate\Support\Facades\Auth;
+use Maize\Markable\Models\Favorite;
+use Illuminate\Http\Request;
 
 class WishlistController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-
-    public function index(){
-        if(Auth::id()){
-            $usertype = Auth()->user()->usertype;
-                
-            if($usertype=='user'){
-                return view('wishlist');
-            }
-        }
-    }
- 
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function wishlist()
     {
-        //
+        $posts = Post::whereHasFavorite(
+            auth()->user()
+        )->get(); 
+        // dd($posts);
+        return view('wishlist',compact('posts'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function favoriteAdd($id)
     {
-        //
+        $post = Post::find($id);
+        $user = auth()->user();
+        Favorite::add($post, $user);
+        // session()->flash('success', 'Post was Added to Wishlist Successfully !');
+
+        return redirect()->route('wishlist');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function favoriteRemove($id)
     {
-        //
-    }
+        $post = Post::find($id);
+        $user = auth()->user();
+        Favorite::remove($post, $user);
+        // session()->flash('success', 'Post was Removed from Wishlist Successfully !');
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        return redirect()->route('wishlist');
     }
 }

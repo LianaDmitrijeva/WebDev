@@ -5,9 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/*********************** Wishlist ***********************/
+use Maize\Markable\Markable;        
+use Maize\Markable\Models\Favorite; 
+
 class Post extends Model
 {
-    use HasFactory;
+    use HasFactory, Markable;  //   'Markable' - Wishlist
 
     protected $fillable = [
         'name', 
@@ -17,6 +21,11 @@ class Post extends Model
         'image', 
         'user_id', 
         'condition'
+    ];
+
+/*********************** Wishlist ***********************/
+    protected static $marks = [
+        Favorite::class,            
     ];
 
     public function user()
