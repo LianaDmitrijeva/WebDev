@@ -27,32 +27,19 @@
                 <th>Image</th>
                 <th>Name</th>
                 <th>Author</th>
-                <th >Price</th>
-                <th >Condition</th>
-                <th >Actions</th>
+                <th width="100px">Price</th>
+                <th width="100px">Condition</th>
+                <th width="160px">Add to Whishlist</th>
             </tr>
             </thead>
             @foreach ($posts as $post)
-            <tr>
+            <tr onclick="window.location='{{ route('show', $post->id) }}';" style="cursor: pointer;">
                 <td><img src="/images/{{ $post->image }}" width="100px"></td>
                 <td>{{ $post->name }}</td>
                 <td>{{ $post->author }}</td>
                 <td>{{ $post->price }}€</td>
-                <!-- style="color:#C0C2C9" -->
-                <td>{{ $post->description }}</td>
-                <td>
-                    <form action="{{ route('destroy',$post->id) }}" method="POST">
-        
-                        <a class="btn btn-secondary" href="{{ route('show',$post->id) }}">View</a>
-        
-                        <a class="btn btn-secondary" href="{{ route('edit',$post->id) }}">Edit</a>
-        
-                        @csrf
-                        @method('DELETE')
-            
-                        <button type="submit" class="btn btn-outline-danger">Delete</button>
-                    </form>
-                </td>
+                <td>{{ $post->condition }}</td>
+                <td style="text-align: center;"><a class="btn btn-outline-danger" href="{{ route('wishlist',$post->id) }}">♥</a></td>
             </tr>
             @endforeach
             @endif
