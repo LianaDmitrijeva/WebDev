@@ -8,7 +8,6 @@
     <x-slot name="header">
         <a class="btn btn-outline-success" href="{{ url('create') }}"> Create New Post</a>
     </x-slot>
-
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -22,6 +21,7 @@
         <div style="margin-left: 150px; width:80%; margin-top:-70px;" class="alert alert-success">
             <p>{{ $message }}</p>
         </div>
+        <br>
     @endif
     <div class="creation">
             @if($posts->isEmpty())

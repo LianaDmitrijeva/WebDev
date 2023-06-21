@@ -41,7 +41,7 @@
                 <td>{{ $post->price }}€</td>
                 <td>{{ $post->condition }}</td>
                 <td style="text-align: center;">
-                    <form action="{{ route('wishlist', $post->id) }}" method="POST">
+                    <form method="POST">
                         @csrf
                         <button type="submit" class="btn btn-outline-danger">♥</button>
                     </form>

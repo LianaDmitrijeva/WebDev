@@ -16,12 +16,27 @@
             </div>
         </form>
     </x-slot>
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <!-- <div class="p-6 text-gray-900">
+                    {{ __("You're logged in!") }}
+                </div> -->
+            </div>
+        </div>
+    </div>
+    @if ($message = Session::get('success'))
+        <div style="margin-left: 150px; width:80%; margin-top:-70px;" class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
+        <br>
+    @endif
     @if($posts->isEmpty())
                 <div class="records">
                     <strong>Currently there are no avaliable posts.</strong>
                 </div>
             @else
-            <table class="table table-sm" style="width:80%; vertical-align: middle;">
+            <table class="table table-sm" style="width:80%; margin-top:-70px; vertical-align: middle;">
             <thead>
             <tr>
                 <th>Image</th>
