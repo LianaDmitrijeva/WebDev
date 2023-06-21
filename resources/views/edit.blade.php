@@ -11,8 +11,8 @@
             {{ __('Edit Post ') }}
         </h2>
     </x-slot>
-@if ($errors->any())
-        <div class="alert alert-danger">
+    @if ($errors->any())
+        <div style="margin-left: 150px; width:80%;" class="alert alert-danger">
             <strong>Whoops!</strong> There were some problems with your input.<br><br>
             <ul>
                 @foreach ($errors->all() as $error)
@@ -20,8 +20,7 @@
                 @endforeach
             </ul>
         </div>
-@endif
-     
+    @endif
     <form class="creation" action="{{ route('update',$post->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
@@ -49,6 +48,13 @@
                     <input type="number" min="0.00" max="10000.00" step="0.01" name="price" value="{{ $post->price }}" class="form-control" placeholder="Price">
                 </div>
             </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <br>
+                <strong>Condition:</strong>
+                <input type="text" name="condition" value="{{ $post->condition }}" class="form-control" placeholder="Condition">
+            </div>
+        </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                 <br>

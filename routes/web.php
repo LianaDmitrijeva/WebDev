@@ -61,3 +61,5 @@ Route::get('/search', [HomeController::class, 'search'])->name('search');
 
 ///////////////////
 Route::get('/userlist', [AdminController::class, 'index'])->middleware('auth')->name('userlist');
+Route::get('/searchuser', [AdminController::class, 'searchUser'])->name('searchuser');
+Route::delete('/userlist/{user}', [AdminController::class, 'destroyUser'])->name('destroyuser');

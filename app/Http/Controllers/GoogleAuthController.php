@@ -30,7 +30,7 @@ class GoogleAuthController extends Controller
                     'google_id' => $google_user->getID()
                 ]);
                 Auth::login($new_user);
-                return redirect()->intended('home');
+                return redirect()->intended('userposts');
             }
         } catch (Exception $e) {
             dd($e->getMessage());

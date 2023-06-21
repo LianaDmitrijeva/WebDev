@@ -32,8 +32,8 @@
         <br>
     @endif
     @if($posts->isEmpty())
-                <div class="records">
-                    <strong>Currently there are no avaliable posts.</strong>
+                <div class="records" style="margin-top:-70px;">
+                    <strong>No avaliable posts.</strong>
                 </div>
             @else
             <table class="table table-sm" style="width:80%; margin-top:-70px; vertical-align: middle;">

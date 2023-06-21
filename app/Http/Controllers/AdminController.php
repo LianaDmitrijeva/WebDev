@@ -16,19 +16,37 @@ class AdminController extends Controller
     public function index(){
         if(Auth::id()){
             $usertype = Auth()->user()->usertype;
-                
+            
             if($usertype=='admin'){
-                return view('admin.userlist');
+                $users = User::where('id', '!=', auth()->user()->id)
+                ->paginate(10);
+                return view('admin.userlist', compact('users'))->with('i', (request()->input('page', 1)-1) *5);
+            }
+            else{
+                return redirect()->back();
             }
         }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function searchUser(Request $request)
     {
-        //
+        
+        if(Auth::id()){
+            $usertype = Auth()->user()->usertype;
+            if($usertype=='admin'){
+                $searchQuery = $request->input('search');
+            
+                $users = User::where(function ($query) use ($searchQuery) {
+                    $query->where('name', 'like', '%' . $searchQuery . '%')
+                        ->orWhere('email', 'like', '%' . $searchQuery . '%')
+                        ->orWhere('id', 'like', '%' . $searchQuery . '%');
+                })->where('id', '!=', Auth::user()->id)->get();
+
+                return view('admin.userlist', ['users' => $users, 'searchQuery' => $searchQuery]);
+            }else {
+                abort(403, 'Unauthorized action.');
+            }
+        }
     }
 
     /**
@@ -66,8 +84,16 @@ class AdminController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroyUser(User $user)
     {
-        //
+        $posts = Post::where('user_id', $user->id)->get();
+
+        foreach ($posts as $post) {
+            $post->delete();
+        }
+        $user->delete();
+      
+        return redirect()->route('userlist')
+                        ->with('success','User deleted successfully');
     }
 }

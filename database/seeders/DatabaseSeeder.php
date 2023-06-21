@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'janesmith@example.com',
             'password' => Hash::make('jane1234'),
             'usertype' => 'user',
+
         ]);
 
         // Create user 3
@@ -36,6 +37,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'michaeljohnson@example.com',
             'password' => Hash::make('michael1234'),
             'usertype' => 'user',
+
         ]);
 
         // Create user 4
@@ -44,6 +46,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'sarahthompson@example.com',
             'password' => Hash::make('sarah1234'),
             'usertype' => 'user',
+
         ]);
 
         // Create user 5
@@ -52,6 +55,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'emilydavis@example.com',
             'password' => Hash::make('emily1234'),
             'usertype' => 'user',
+
         ]);
 
         ////////////////////////////////// CREATING ADMINS ///////////////////////////////

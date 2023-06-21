@@ -39,7 +39,8 @@ class HomeController extends Controller
             'name' => 'required',
             'author' => 'required',
             'price' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'condition' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:200',
             ]);
             
             $input = $request->all();
@@ -73,6 +74,8 @@ class HomeController extends Controller
             'name' => 'required',
             'author' => 'required',
             'price' => 'required',
+            'condition' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:200',
             ]);
    
         $input = $request->all();
@@ -101,22 +104,28 @@ class HomeController extends Controller
 
     public function search(Request $request)
     {
-        $searchQuery = $request->input('search');
-            
-        // Perform the search operation based on the search query
-        $posts = Post::where('name', 'like', '%' . $searchQuery . '%')
-                     ->orWhere('author', 'like', '%' . $searchQuery . '%')
-                     ->orWhere('price', 'like', '%' . $searchQuery . '%')
-                     ->orWhere('condition', 'like', '%' . $searchQuery . '%')
-                     ->get();
         
-        // Pass the search results to the view
         if(Auth::id()){
             $usertype = Auth()->user()->usertype;
             if($usertype=='user'){
+                $searchQuery = $request->input('search');
+            
+                $posts = Post::where(function ($query) use ($searchQuery) {
+                    $query->where('name', 'like', '%' . $searchQuery . '%')
+                          ->orWhere('author', 'like', '%' . $searchQuery . '%')
+                          ->orWhere('price', 'like', '%' . $searchQuery . '%')
+                          ->orWhere('condition', 'like', '%' . $searchQuery . '%');
+                })->where('user_id', '!=', auth()->user()->id)->get();
                 return view('feed', compact('posts', 'searchQuery'));
             }
             else if($usertype=='admin'){
+                $searchQuery = $request->input('search');
+            
+                $posts = Post::where('name', 'like', '%' . $searchQuery . '%')
+                            ->orWhere('author', 'like', '%' . $searchQuery . '%')
+                            ->orWhere('price', 'like', '%' . $searchQuery . '%')
+                            ->orWhere('condition', 'like', '%' . $searchQuery . '%')
+                            ->get();
                 return view('admin.adminhome', compact('posts', 'searchQuery'));
             }
         }

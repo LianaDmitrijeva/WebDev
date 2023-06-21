@@ -14,7 +14,9 @@ class FeedController extends Controller
             $usertype = Auth()->user()->usertype;
             
             if($usertype=='user'){
-                $posts = Post::paginate(10);
+                $posts = Post::where('user_id', '!=', auth()->user()->id)
+                ->latest()
+                ->paginate(10);
                 return view('feed', compact('posts'))->with('i', (request()->input('page', 1)-1) *5);
             }
             else if($usertype=='admin'){
