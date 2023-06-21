@@ -5,7 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FeedController;
 use App\Http\Controllers\GoogleAuthController;
-use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\WishlistController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,3 +62,6 @@ Route::get('/wishlist', [WishlistController::class, 'index'])->middleware('auth'
 
 ///////////////
 Route::get('/myposts/search', [HomeController::class, 'search'])->name('search');
+
+///////////////////
+Route::get('/userlist', [AdminController::class, 'index'])->middleware('auth')->name('userlist');

@@ -1,13 +1,12 @@
 <style>
     table, .records{
         margin-left: 150px; 
+        margin-top:-70px;
     }
 </style>
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Created Posts') }}
-        </h2>
+        <a class="btn btn-outline-success" href="{{ url('create') }}"> Create New Post</a>
     </x-slot>
 
     <div class="py-12">
@@ -16,14 +15,6 @@
                 <!-- <div class="p-6 text-gray-900">
                     {{ __("You're logged in!") }}
                 </div> -->
-            </div>
-        </div>
-    </div>
-
-    <div style="margin-top: -80px; margin-left: 150px;">
-        <div class="col-lg-12 margin-tb" style="paddings: 49px;">
-            <div class="pull-right" style="margin-bottom:10px;">
-                <a class="btn btn-outline-success" href="{{ url('create') }}"> Create New Post</a>
             </div>
         </div>
     </div>
