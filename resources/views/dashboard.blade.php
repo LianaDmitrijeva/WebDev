@@ -19,7 +19,7 @@
         </div>
     </div>
     @if ($message = Session::get('success'))
-        <div style="margin-left: 150px; width:80%;" class="alert alert-success">
+        <div style="margin-left: 150px; width:80%; margin-top:-70px;" class="alert alert-success">
             <p>{{ $message }}</p>
         </div>
     @endif
@@ -36,7 +36,7 @@
                 <th>Name</th>
                 <th>Author</th>
                 <th>Price</th>
-                <th>Description</th>
+                <th>Condition</th>
                 <th width="280px">Actions</th>
             </tr>
             @foreach ($posts as $post)
@@ -45,8 +45,7 @@
                 <td>{{ $post->name }}</td>
                 <td>{{ $post->author }}</td>
                 <td>{{ $post->price }}€</td>
-                <!-- style="color:#C0C2C9" -->
-                <td>{{ $post->description }}</td>
+                <td>{{ $post->condition }}</td>
                 <td>
                     <form action="{{ route('destroy',$post->id) }}" method="POST">
         

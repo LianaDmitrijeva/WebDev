@@ -14,11 +14,11 @@ class HomeController extends Controller
             $usertype = Auth()->user()->usertype;
             
             if($usertype=='user'){
-                $posts = Post::where('user_id', auth()->user()->id)->latest()->paginate(5);
+                $posts = Post::where('user_id', auth()->user()->id)->latest()->paginate(10);
                 return view('dashboard', compact('posts'))->with('i', (request()->input('page', 1)-1) *5);
             }
             else if($usertype=='admin'){
-                $posts = Post::latest()->paginate(5);
+                $posts = Post::all();
                 return view('admin.adminhome', compact('posts'))->with('i', (request()->input('page', 1)-1) *5);
             }
             else{

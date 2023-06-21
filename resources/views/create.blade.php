@@ -47,6 +47,13 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <br>
+                <strong>Condition:</strong>
+                <input type="text" name="condition" class="form-control" placeholder="Condition">
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <br>
                 <strong>Description:</strong>
                 <textarea class="form-control" style="height:150px" name="description" placeholder="Description"></textarea>
             </div>

@@ -21,7 +21,7 @@
                     <strong>Currently there are no avaliable posts.</strong>
                 </div>
             @else
-            <table class="table table-hover" style="width:80%; vertical-align: middle;">
+            <table class="table table-sm" style="width:80%; vertical-align: middle;">
             <thead>
             <tr>
                 <th>Image</th>
@@ -38,8 +38,7 @@
                 <td>{{ $post->name }}</td>
                 <td>{{ $post->author }}</td>
                 <td>{{ $post->price }}€</td>
-                <!-- style="color:#C0C2C9" -->
-                <td>{{ $post->description }}</td>
+                <td>{{ $post->condition }}</td>
                 <td>
                     <form action="{{ route('destroy',$post->id) }}" method="POST">
         

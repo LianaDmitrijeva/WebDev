@@ -19,10 +19,9 @@ use App\Http\Controllers\AdminController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
+Route::get('/', function () {
+    return view('welcome');
+});
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
@@ -57,11 +56,8 @@ Route::put('edit/{post}',[HomeController::class, 'update'])->name('update');
 Route::delete('/{post}',[HomeController::class, 'destroy'])->name('destroy');
 Route::post('store/', [HomeController::class, 'store'])->name('store');
 
-//////////////
-Route::get('/wishlist', [WishlistController::class, 'index'])->middleware('auth')->name('wishlist');
-
 ///////////////
-Route::get('/myposts/search', [HomeController::class, 'search'])->name('search');
+Route::get('/search', [HomeController::class, 'search'])->name('search');
 
 ///////////////////
 Route::get('/userlist', [AdminController::class, 'index'])->middleware('auth')->name('userlist');

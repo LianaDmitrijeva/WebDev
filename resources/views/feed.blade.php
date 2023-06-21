@@ -16,6 +16,7 @@
             </div>
         </form>
     </x-slot>
+    <div class="creation">
     @if($posts->isEmpty())
                 <div class="records">
                     <strong>Currently there are no avaliable posts.</strong>
@@ -39,8 +40,16 @@
                 <td>{{ $post->author }}</td>
                 <td>{{ $post->price }}€</td>
                 <td>{{ $post->condition }}</td>
-                <td style="text-align: center;"><a class="btn btn-outline-danger" href="{{ route('wishlist',$post->id) }}">♥</a></td>
+                <td style="text-align: center;">
+                    <form action="{{ route('wishlist', $post->id) }}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn btn-outline-danger">♥</button>
+                    </form>
+                </td>
             </tr>
             @endforeach
             @endif
+            </table>
+            </div>
+        {!! $posts->links() !!}
 </x-app-layout>
