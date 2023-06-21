@@ -48,7 +48,7 @@
                 <th width="160px">Add to Whishlist</th>
             </tr>
             </thead>
-            @foreach ($posts as $post)
+            @foreach ($post as $post)
             <tr onclick="window.location='{{ route('show', $post->id) }}';" style="cursor: pointer;">
                 <td><img src="/images/{{ $post->image }}" width="100px"></td>
                 <td>{{ $post->name }}</td>

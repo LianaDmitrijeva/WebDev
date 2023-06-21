@@ -26,7 +26,7 @@
         </div>
     </div>
     @if ($message = Session::get('success'))
-        <div style="margin-left: 150px; width:80%; margin-top:-70px;" class="alert alert-success">
+        <div style="margin-left: 150px; width:80%;margin-bottom:50px; margin-top:-90px;" class="alert alert-success">
             <p>{{ $message }}</p>
         </div>
         <br>

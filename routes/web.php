@@ -7,6 +7,7 @@ use App\Http\Controllers\FeedController;
 use App\Http\Controllers\GoogleAuthController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\WelcomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +20,10 @@ use App\Http\Controllers\AdminController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
@@ -63,3 +65,5 @@ Route::get('/search', [HomeController::class, 'search'])->name('search');
 Route::get('/userlist', [AdminController::class, 'index'])->middleware('auth')->name('userlist');
 Route::get('/searchuser', [AdminController::class, 'searchUser'])->name('searchuser');
 Route::delete('/userlist/{user}', [AdminController::class, 'destroyUser'])->name('destroyuser');
+
+Route::get('/searchwelcome', [WelcomeController::class, 'searchwelcome'])->name('searchwelcome');
