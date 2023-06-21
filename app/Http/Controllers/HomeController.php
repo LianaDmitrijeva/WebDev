@@ -75,7 +75,7 @@ class HomeController extends Controller
             'author' => 'required',
             'price' => 'required',
             'condition' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:200',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:200',
             ]);
    
         $input = $request->all();

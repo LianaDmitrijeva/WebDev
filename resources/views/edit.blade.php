@@ -11,8 +11,8 @@
             {{ __('Edit Post ') }}
         </h2>
     </x-slot>
-    @if ($errors->any())
-        <div style="margin-left: 150px; width:80%;" class="alert alert-danger">
+@if ($errors->any())
+        <div class="alert alert-danger">
             <strong>Whoops!</strong> There were some problems with your input.<br><br>
             <ul>
                 @foreach ($errors->all() as $error)
@@ -20,7 +20,8 @@
                 @endforeach
             </ul>
         </div>
-    @endif
+@endif
+     
     <form class="creation" action="{{ route('update',$post->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')

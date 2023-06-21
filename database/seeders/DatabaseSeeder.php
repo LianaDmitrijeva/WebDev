@@ -198,5 +198,27 @@ class DatabaseSeeder extends Seeder
             'image'=> '12.jpg', 
             'user_id' => 5, 
         ]);
+
+        //Create Troll 13
+        DB::table('posts')->insert([
+            'name' => "Hello there!",
+            'author' => ':D',
+            'price' => 66.6,
+            'condition' => 'ololololo',
+            'description' => "👽👽👽",
+            'image'=> 'troll.png', 
+            'user_id' => 3, 
+        ]);
+
+        //Create book 14 (needs a fix)
+        DB::table('posts')->insert([
+            'name' => "Pride and Prejudice",
+            'author' => 'Jane Austen',
+            'price' => 7.01,
+            'condition' => 'old',
+            'description' => "Hey! Check this out https://www.booking.com/ !",
+            'image'=> '15.jpeg', 
+            'user_id' => 4, 
+        ]);
     }
 }
