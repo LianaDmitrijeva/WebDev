@@ -22,7 +22,7 @@
     <div class="creation">
     <form action="{{ url('/searchwelcome') }}" method="GET" class="mb-4">
         <div class="flex items-center">
-            <input style="margin-top:30px;" type="text" name="searchwelcome" placeholder="Search posts" class="rounded-l-md border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white px-3 py-2 placeholder-gray-400 text-sm focus:outline-none focus:border-blue-400">
+            <input  style="width: 83%;margin-top:30px;" type="text" name="searchwelcome" placeholder="Search posts" class="rounded-l-md border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white px-3 py-2 placeholder-gray-400 text-sm focus:outline-none focus:border-blue-400">
             <button style="margin-top:30px;" type="submit" class="btn btn-secondary">Search</button>
         </div>
         <!-- <h2 style="float:right; margin-right:20%">{{ __('welcome.welcome') }}</h2> -->
@@ -50,6 +50,7 @@
                 <th>Author</th>
                 <th>Price</th>
                 <th>Condition</th>
+                <th>Actions</th>
             </tr>
             </thead>
             @foreach ($posts as $post)
@@ -59,6 +60,7 @@
                 <td>{{ $post->author }}</td>
                 <td>{{ $post->price }}€</td>
                 <td>{{ $post->condition }}</td>
+                <td><a class="btn btn-secondary" href="{{ route('show',$post->id) }}">View</a></td>
             </tr>
             @endforeach
             @endif
