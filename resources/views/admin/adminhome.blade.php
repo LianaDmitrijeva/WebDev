@@ -12,7 +12,7 @@
         <form action="{{ route('search') }}" method="GET" class="mb-4">
             <div class="flex items-center">
                 <input type="text" name="search" placeholder="Search posts" class="rounded-l-md border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white px-3 py-2 placeholder-gray-400 text-sm focus:outline-none focus:border-blue-400">
-                <button type="submit" class="btn btn-outline-secondary">Search</button>
+                <button type="submit" class="btn btn-dark">Search</button>
             </div>
         </form>
     </x-slot>
@@ -36,7 +36,7 @@
                     <strong>No avaliable posts.</strong>
                 </div>
             @else
-            <table class="table table-sm" style="width:80%; margin-top:-70px; vertical-align: middle;">
+            <table class="table table-sm table-dark" style="width:80%; margin-top:-70px; vertical-align: middle;">
             <thead style="background-color: #D5D5D5; boarders:white; color: white; text-shadow: 1px 1px 2px black;">
             <tr>
                 <th>Image</th>
@@ -70,4 +70,5 @@
             </tr>
             @endforeach
             @endif
+        </table>
 </x-app-layout>

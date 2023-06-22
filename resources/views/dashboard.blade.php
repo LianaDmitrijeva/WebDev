@@ -6,7 +6,7 @@
 </style>
 <x-app-layout>
     <x-slot name="header">
-        <a class="btn btn-outline-success" href="{{ url('create') }}"> Create New Post</a>
+        <a class="btn btn-success" href="{{ url('create') }}"> Create New Post</a>
     </x-slot>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -66,5 +66,16 @@
             @endif
         </table>
     </div>
-        {!! $posts->links() !!}
+    <div style="margin-left:10%; padding-bottom:10px"  class="pagination">
+                @if ($posts->onFirstPage())
+                    <button class="btn btn-outline-secondary" href="#">&laquo; Previous</button>
+                @else
+                <a class="btn btn-outline-secondary" href="{{ $posts->previousPageUrl() }}" rel="prev">&laquo; Previous </a>
+                @endif
+                @if ($posts->hasMorePages())
+                    <a style="margin-left:75%;" class="btn btn-outline-secondary" href="{{ $posts->nextPageUrl() }}" rel="next">Next &raquo;</a>
+                @else
+                    <a style="margin-left:75%;" class="btn btn-outline-secondary" href="#"> Next &raquo;</a>
+                @endif
+            </div>
 </x-app-layout>

@@ -76,9 +76,21 @@
                     </td>     
                 </tr>
             </table>
-            @if (auth()->check() && auth()->user()->id === $post->user_id)
+            @if (auth()->user()->usertype == 'user')
+                @if (auth()->check() && auth()->user()->id === $post->user_id)
+                @else
+                <form action="{{ route('favorite.add', $post->id) }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <button style=" width:80%; margin-top:10px; margin-bottom:10px;" class="btn btn-danger">Add to Wishlist</button>
+                </form>
+                @endif
             @else
-            <button style=" width:80%; margin-top:10px; margin-bottom:10px;" class="btn btn-outline-secondary">Contact Seller</button>
+            <form action="{{ route('destroy',$post->id) }}" method="POST">
+                <a style=" width:80%; margin-top:10px; margin-bottom:10px;" class="btn btn-secondary" href="{{ route('edit',$post->id) }}">Edit</a>
+                    @csrf
+                    @method('DELETE')
+                    <button style=" width:80%; margin-top:10px; margin-bottom:10px;" type="submit" class="btn btn-outline-danger">Delete</button>
+                </form>`
             @endif
         </div>  
     </div>

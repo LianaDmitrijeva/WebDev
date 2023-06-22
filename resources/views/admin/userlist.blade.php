@@ -12,12 +12,12 @@
         <form action="{{ route('searchuser') }}" method="GET" class="mb-4">
             <div class="flex items-center">
                 <input type="text" name="search" placeholder="Search users" class="rounded-l-md border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white px-3 py-2 placeholder-gray-400 text-sm focus:outline-none focus:border-blue-400">
-                <button type="submit" class="btn btn-outline-secondary">Search</button>
+                <button type="submit" class="btn btn-dark">Search</button>
             </div>
         </form>
     </x-slot>
     @if ($message = Session::get('success'))
-        <div style="margin-left: 150px; width:80%;" class="alert alert-success">
+        <div style="margin-left: 150px; margin-top: 6px; width:80%;" class="alert alert-success">
             <p>{{ $message }}</p>
         </div>
     @endif
@@ -27,7 +27,7 @@
                     <strong>No avaliable users.</strong>
                 </div>
     @else
-            <table class="table table-hover" style="width:80%; vertical-align: middle;">
+            <table class="table table-sm table-dark" style=" width:80%; vertical-align: middle;">
             <thead style="background-color: #D5D5D5; boarders:white; color: white; text-shadow: 1px 1px 2px black;">
             <tr>
                 <th>ID</th>
@@ -52,5 +52,4 @@
             @endforeach
     @endif
             </table>
-            </div>
 </x-app-layout>

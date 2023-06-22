@@ -12,7 +12,7 @@
         <form action="{{ route('search') }}" method="GET" class="mb-4">
             <div class="flex items-center">
                 <input type="text" name="search" placeholder="Search posts" class="rounded-l-md border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white px-3 py-2 placeholder-gray-400 text-sm focus:outline-none focus:border-blue-400">
-                <button type="submit" class="btn btn-outline-secondary">Search</button>
+                <button type="submit" class="btn btn-secondary">Search</button>
             </div>
         </form>
     </x-slot>
@@ -63,5 +63,4 @@
             @endforeach
             @endif
             </table>
-            </div>
 </x-app-layout>

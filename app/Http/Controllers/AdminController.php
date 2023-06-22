@@ -19,7 +19,7 @@ class AdminController extends Controller
             
             if($usertype=='admin'){
                 $users = User::where('id', '!=', auth()->user()->id)
-                ->paginate(10);
+                ->get();
                 return view('admin.userlist', compact('users'))->with('i', (request()->input('page', 1)-1) *5);
             }
             else{

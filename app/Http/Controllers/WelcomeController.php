@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\App;
+
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Post;
@@ -11,6 +13,7 @@ class WelcomeController extends Controller
 {
     public function index()
     {
+        // App::setLocale($lang);
         if(Auth::id()){
             $posts = Post::all();
             return view('feed', compact('posts'));

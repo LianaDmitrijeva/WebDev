@@ -1,5 +1,9 @@
 @auth
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+@if (auth()->user()->usertype == 'admin')
+<nav style="background-color:#4F5873;" x-data="{ open: false }" class="bg-#4F5873 border-b border-#4F5873 -100">
+@else
+<nav style="background-color:#FFE37A;" x-data="{ open: false }" class="bg-#FFE37A border-b border-#FFE37A-100">
+@endif
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -14,28 +18,28 @@
                 <!-- Navigation Links -->
                 @if (auth()->user()->usertype == 'user')
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('feed')" :active="request()->routeIs('feed')">
+                    <x-nav-link style="color:black" :href="route('feed')" :active="request()->routeIs('feed')">
                         {{ __('Discover') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                    <x-nav-link style="color:black" :href="route('home')" :active="request()->routeIs('home')">
                         {{ __('My Posts') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('wishlist')" :active="request()->routeIs('wishlist')">
+                    <x-nav-link style="color:black" :href="route('wishlist')" :active="request()->routeIs('wishlist')">
                         {{ __('Wishlist') }}
                     </x-nav-link>
                 </div>
                 @else
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                    <x-nav-link style="color:#ECECEC; text-decoration:none;" :href="route('home')" :active="request()->routeIs('home')">
                         {{ __('User Posts') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('userlist')" :active="request()->routeIs('userlist')">
+                    <x-nav-link style="color:#ECECEC; text-decoration:none;" :href="route('userlist')" :active="request()->routeIs('userlist')">
                         {{ __('List of users') }}
                     </x-nav-link>
                 </div>

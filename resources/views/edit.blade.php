@@ -12,7 +12,7 @@
         </h2>
     </x-slot>
 @if ($errors->any())
-        <div class="alert alert-danger">
+        <div style="margin-left: 150px; width:80%;" class="alert alert-danger">
             <strong>Whoops!</strong> There were some problems with your input.<br><br>
             <ul>
                 @foreach ($errors->all() as $error)

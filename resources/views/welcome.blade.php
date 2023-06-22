@@ -7,14 +7,14 @@
         text-align: center;
     }
 </style>
-<div style="width:100%; " class="alert alert-light">
+<div style="width:100%; background-color:#FFE37A; " class="alert alert-light">
                     @auth
-                        <a class="btn btn-outline-secondary" style="margin-left:47%;" href="{{ url('/home') }}">Dashboard</a>
+                        <a class="btn btn-secondary" style="margin-left:47%;" href="{{ url('/home') }}">Dashboard</a>
                     @else
-                        <a class="btn btn-outline-success" style="margin-left:47%;" href="{{ route('login') }}">Log in </a>
+                        <a class="btn btn-success" style="margin-left:47%;" href="{{ route('login') }}">Log in </a>
                         |
                         @if (Route::has('register'))
-                            <a class="btn btn-outline-success" href="{{ route('register') }}"> Register</a>
+                            <a class="btn btn-success" href="{{ route('register') }}"> Register</a>
                         @endif
                     @endauth
 </div>
@@ -23,8 +23,9 @@
     <form action="{{ url('/searchwelcome') }}" method="GET" class="mb-4">
         <div class="flex items-center">
             <input style="margin-top:30px;" type="text" name="searchwelcome" placeholder="Search posts" class="rounded-l-md border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white px-3 py-2 placeholder-gray-400 text-sm focus:outline-none focus:border-blue-400">
-            <button style="margin-top:30px;" type="submit" class="btn btn-outline-secondary">Search</button>
+            <button style="margin-top:30px;" type="submit" class="btn btn-secondary">Search</button>
         </div>
+        <!-- <h2 style="float:right; margin-right:20%">{{ __('welcome.welcome') }}</h2> -->
     </form>
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -41,7 +42,7 @@
                 </div>
             @else
             <table class="table table-sm" style="width:80%; margin-top:-70px; vertical-align: middle;">
-            <thead style="background-color: #D5D5D5; boarders:white; color: white; text-shadow: 1px 1px 2px black;">
+            <thead style="background-color: #9C9C9C; boarders:white; color: white; text-shadow: 1px 1px 2px black;">
             <tr></tr>
             <tr>
                 <th>Image</th>
