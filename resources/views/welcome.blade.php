@@ -41,7 +41,7 @@
                     <strong>No avaliable posts.</strong>
                 </div>
             @else
-            <table class="table table-sm" style="width:80%; margin-top:-70px; vertical-align: middle;">
+            <table class="table table-striped" style="width:80%; margin-top:-70px; vertical-align: middle;">
             <thead style="background-color: #9C9C9C; boarders:white; color: white; text-shadow: 1px 1px 2px black;">
             <tr></tr>
             <tr>
