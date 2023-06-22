@@ -73,3 +73,6 @@ Route::get('products', [ProductController::class, 'productList'])->name('product
 Route::post('favorite-add/{id}', [WishlistController::class, 'favoriteAdd'])->name('favorite.add');
 Route::delete('favorite-remove/{id}', [WishlistController::class, 'favoriteRemove'])->name('favorite.remove');
 Route::get('wishlist', [WishlistController::class, 'wishlist'])->name('wishlist');
+
+Route::get('useredit/{user}', [AdminController::class, 'useredit'])->name('useredit');
+Route::put('userupdate/{user}',[AdminController::class, 'userupdate'])->name('userupdate');

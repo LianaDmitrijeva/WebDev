@@ -33,6 +33,7 @@
                 <th>ID</th>
                 <th>Name</th>
                 <th>Email</th>
+                <th>User Type</th>
                 <th style="text-align: center; width=160px">Actions</th>
             </tr>
             </thead>
@@ -41,8 +42,10 @@
                 <td>{{ $user->id }}</td>
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
+                <td class="update" data-name="detail" data-type="text" data-pk="{{ $user->id }}" data-title="Enter Detail">{{ $user->usertype }}</td>
                 <td style="text-align: center;">
                 <form action="{{ route('destroyuser',$user->id) }}" method="POST">
+                <a class="btn btn-secondary" href="{{ route('useredit',$user->id) }}">Edit</a>
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-outline-danger">Delete</button>

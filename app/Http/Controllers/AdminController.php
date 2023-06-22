@@ -68,17 +68,26 @@ class AdminController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function useredit(User $user)
     {
-        //
+       return view('admin.useredit',compact('user'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function userupdate(Request $request, User $user)
     {
-        //
+        $request->validate([
+            'usertype' => 'required',
+            ]);
+   
+        $input = $request->all();
+           
+        $user->update($input);
+     
+        return redirect()->route('userlist')
+                        ->with('success','User updated successfully');
     }
 
     /**
